@@ -1,4 +1,7 @@
 Rails.application.configure do
+
+  BetterErrors::Middleware.allow_ip! '192.168.33.1'
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

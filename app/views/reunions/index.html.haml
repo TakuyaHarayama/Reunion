@@ -1,0 +1,19 @@
+%h1 Listing reunions
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+
+  %tbody
+    - @reunions.each do |reunion|
+      %tr
+        %td= link_to 'Show', reunion
+        %td= link_to 'Edit', edit_reunion_path(reunion)
+        %td= link_to 'Destroy', reunion, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Reunion', new_reunion_path

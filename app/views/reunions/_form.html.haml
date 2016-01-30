@@ -1,0 +1,10 @@
+= form_for @reunion do |f|
+  - if @reunion.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@reunion.errors.count, "error")} prohibited this reunion from being saved:"
+      %ul
+        - @reunion.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'
