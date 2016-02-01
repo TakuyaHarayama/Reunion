@@ -14,8 +14,27 @@
 ActiveRecord::Schema.define(version: 20160130211003) do
 
   create_table "reunions", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "upload_file_name",   limit: 255
+    t.binary   "upload_file",        limit: 65535
+    t.string   "school",             limit: 255,   null: false
+    t.integer  "graduation_year",    limit: 4,     null: false
+    t.text     "description",        limit: 65535
+    t.datetime "event_date",                       null: false
+    t.datetime "accepted_time",                    null: false
+    t.integer  "price",              limit: 4,     null: false
+    t.text     "attendance",         limit: 65535
+    t.integer  "contact_tel",        limit: 4,     null: false
+    t.string   "contact_email",      limit: 255,   null: false
+    t.string   "contact_day",        limit: 255
+    t.integer  "contact_time_start", limit: 4
+    t.integer  "contact_time_end",   limit: 4
+    t.date     "expired_at",                       null: false
+    t.string   "place_name",         limit: 255,   null: false
+    t.string   "place_address",      limit: 255,   null: false
+    t.string   "place_access",       limit: 255,   null: false
+    t.string   "place_map_url",      limit: 255,   null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
 end
