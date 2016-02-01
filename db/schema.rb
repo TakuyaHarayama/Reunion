@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201113742) do
+ActiveRecord::Schema.define(version: 20160201120136) do
 
   create_table "reunions", force: :cascade do |t|
     t.string   "upload_file_name",   limit: 255
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20160201113742) do
     t.string   "place_map_url",      limit: 255,   null: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+  end
+
+  create_table "user_reunion_relationships", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4, null: false
+    t.integer  "reunion_id", limit: 4, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "users", force: :cascade do |t|
