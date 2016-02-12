@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'reunions#index'
+
   resources :users
   resources :reunions
   # The priority is based upon order of creation: first created -> highest priority.

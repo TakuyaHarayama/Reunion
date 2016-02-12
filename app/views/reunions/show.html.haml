@@ -1,6 +1,71 @@
-%p#notice= notice
+.row
+  .col-lg-12
+    %h1.page-header
+      = @reunion.school
+      %p
+        %small
+          = @reunion.graduation_year.to_s + "年度卒業生"
 
+.row
+  .col-md-8
+    %img.img-responsive{:alt => "学校の写真", :src => @reunion.photo}/
+  .col-md-4
+    %h3 ご挨拶
+    %p
+      = @reunion.description
+    %h3 開催日時詳細
+    %ul
+      %li
+        = "日時 : #{@reunion.event_date}"
+      %li
+        = "受付 : #{@reunion.accepted_time}"
+      %li
+        = "費用 : #{@reunion.price}"
+      %li
+        = "場所 : #{@reunion.place_name}"
+      %li
+        = "住所 : #{@reunion.place_address}"
+      %li
+        = "アクセス : #{@reunion.place_access}"
 
-= link_to 'Edit', edit_reunion_path(@reunion)
-\|
-= link_to 'Back', reunions_path
+%hr
+
+%h2 参加申し込みについて
+
+- if @reunion.expired_at > Time.now
+  .panel.panel-danger
+    .panel-heading
+      %h3.panel-title 申込締め切り
+    .panel-body
+      = @reunion.expired_at
+
+%p
+  ページ下「WELCOME BACK!」ボタンをクリックで簡単に参加申し込みができます。
+%p
+  案内状の届いた方は、参加ハガキにてもお申込いただけます。
+%p
+  ご不明な点などございましたら、
+  %a{:href => "#"} こちら
+  からお気軽にお問い合わせ下さい。
+
+%hr
+
+.well
+  .row
+    .col-md-4
+      %p 同窓会への参加申込はこちらから！
+    .col-md-12
+      %a.btn.btn-lg.btn-info.btn-block{"data-toggle" => "modal", :href => ".modal"} WELCOME BACK !
+
+%hr
+
+.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4.modal-title 参加申し込み フォーム
+      .modal-body
+        %p One fine body…
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-primary{:type => "button"} JOIN

@@ -7,4 +7,43 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    %header
+      %nav.navbar.navbar-default.navbar-fixed-top
+        .container-fluid
+          .navbar-header
+            %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand{:href => "#"} HOME
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav
+              %li
+                %a{:href => "#"}
+                  MEMBER LIST
+                  %span.sr-only (current)
+              %li
+                %a{:href => "#"} COMINUCATION BOARD
+              %li.dropdown
+                %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                  PHOTO ALBUM
+                  %span.caret
+                %ul.dropdown-menu{:role => "menu"}
+                  %li
+                    %a{:href => "#"} GRADUATION
+                  %li
+                    %a{:href => "#"} REUNION
+              %li
+                %a{:href => "#"} CONTACT
+            %ul.nav.navbar-nav.navbar-right
+              %li
+                %a{:href => "#"} ADMIN
+    .container{:style => "padding-top: 50px;"}
+      = yield
+
+.container
+  %footer
+    .row
+      .col-lg-12
+        %p Copyright © Harayama Website 2014
